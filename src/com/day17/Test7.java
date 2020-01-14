@@ -8,7 +8,6 @@ public class Test7 {
         File file[] = f.listFiles();
         for (File f1 : file) {
             System.out.println(f1.getName());
-           // System.out.println(f1.length());
         }
     }
 }

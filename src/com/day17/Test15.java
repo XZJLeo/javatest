@@ -19,7 +19,7 @@ public class Test15 {
             if (f.isFile()) {
                size+=f.length();
             } else {
-                calculate(f);
+                size+=calculate(f);
             }
         }
         return size;
