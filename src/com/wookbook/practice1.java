@@ -1,33 +1,26 @@
 package com.wookbook;
 
+import java.io.*;
+import java.util.HashMap;
+import java.util.Set;
 
 public class practice1 {
-    public static void main(String[] args) {
-        A a=new A();
-        A.B ab=a.new B();
-
-        a.kkj();
-    }
-}
-class A{
-    int num=10;
-    class B{
-        int num=20;
-        public void moth(){
-            int num=50;
-            System.out.println(num);
-            System.out.println(this.num);
-            System.out.println(A.this.num);
-            class C{
-                int num=40;
-                public void fg(){
-                    System.out.println(num);
-                }
-            }
-
+    public static void main(String[] args) throws  Exception{
+        BufferedReader bis=new BufferedReader(new FileReader("D:\\a.txt"));
+        BufferedWriter bos=new BufferedWriter(new FileWriter("D:\\b.txt"));
+        HashMap<String ,String >hashMap=new HashMap<>();
+        String len=null;
+        while ((len=bis.readLine())!=null){
+            String str[]= len.split("\\.");
+            hashMap.put(str[0],str[1]);
         }
-    }
-    public void kkj(){
-        System.out.println("zxj:"+num);
+        Set<String >set=hashMap.keySet();
+        for (int i=1;i<=set.size();i++){
+            String s=String.valueOf(i);
+            bos.write(s+"."+hashMap.get(s));
+            bos.newLine();
+        }
+        bis.close();
+        bos.close();
     }
 }
