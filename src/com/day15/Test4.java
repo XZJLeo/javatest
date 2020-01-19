@@ -14,21 +14,15 @@ public class Test4 {
 }
 
 class MyTheard1 implements Runnable {
-
     private Person person;
-
     public MyTheard1(Person person) {
         this.person = person;
     }
-
     ReentrantLock reentrantLock = new ReentrantLock();
-
     public void run() {
         while (true) {
-
             reentrantLock.lock();
             int num = person.getNum();
-
             if (num > 100) {
                 System.out.println(Thread.currentThread().getName() + ": 没了");
                 reentrantLock.unlock();
@@ -37,9 +31,7 @@ class MyTheard1 implements Runnable {
             System.out.println(Thread.currentThread().getName() + " ," + person.getName() + "卖出" + num + "个" + ",剩余" + (100 - num) + "个");
             person.setNum(++num);
             reentrantLock.unlock();
-
         }
-
     }
 }
 
